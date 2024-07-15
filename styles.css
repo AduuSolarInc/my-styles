@@ -1,3 +1,63 @@
+@font-face {
+    font-family: "proxima-nova";
+    src: url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-bold.woff2") format("woff2"),
+         url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-bold.woff") format("woff"),
+         url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-bold.otf") format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "proxima-nova";
+    src: url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-light.woff2") format("woff2"),
+         url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-light.woff") format("woff"),
+         url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-light.otf") format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "proxima-nova";
+    src: url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-medium.woff2") format("woff2"),
+         url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-medium.woff") format("woff"),
+         url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-medium.otf") format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "proxima-nova";
+    src: url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-regular.woff2") format("woff2"),
+         url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-regular.woff") format("woff"),
+         url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-regular.otf") format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "proxima-nova";
+    src: url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-regularit.woff2") format("woff2"),
+         url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-regularit.woff") format("woff"),
+         url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-regularit.otf") format("opentype");
+    font-display: auto;
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "proxima-nova";
+    src: url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-semibold.woff2") format("woff2"),
+         url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-semibold.woff") format("woff"),
+         url("https://raw.githubusercontent.com/AduuSolarInc/my-styles/main/fonts/proximanova-semibold.otf") format("opentype");
+    font-display: auto;
+    font-style: normal;
+    font-weight: 600;
+}
+
 /* Root Variables */
 :root {
     --primary: #007bff;
@@ -8,7 +68,7 @@
     --danger: #dc3545;
     --light: #fafafd;
     --dark: #253858;
-    --font-family-sans-serif: proxima-nova, sans-serif;
+    --font-family-sans-serif: "proxima-nova", sans-serif;
 }
 
 /* Typography */
@@ -109,7 +169,7 @@ p {
 }
 
 .btn-success {
-    background-color: var (--success);
+    background-color: var(--success);
     border-color: var(--success);
 }
 
@@ -207,3 +267,4 @@ label {
 .text-left { text-align: left !important; }
 .text-center { text-align: center !important; }
 .text-right { text-align: right !important; }
+
