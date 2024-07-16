@@ -1,347 +1,581 @@
-/* Root Variables */
-:root {
-    --primary: #007bff;
-    --secondary: #6b778c;
-    --success: #28a745;
-    --info: #17a2b8;
-    --warning: #ffc107;
-    --danger: #dc3545;
-    --light: #fafafd;
-    --dark: #253858;
-    --font-family-sans-serif: "proxima-nova", sans-serif;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-/* Typography */
-body {
-    font-family: var(--font-family-sans-serif);
-    color: #42526e;
-    background-color: #000000;
-}
 
-h1, h2, h3, h4, h5, h6 {
-    color: var(--dark);
-}
 
-.h1, h1 {
-    font-size: 2rem;
-}
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover">
+      <meta name="description" content="Client portal for Aduu Solar Engineering">
+      <meta name="robots" content="noindex">
+      <meta name="turbo-cache-control" content="no-cache">
+      <!-- MAIN CSS HERE!! -->
+      <link rel="stylesheet" href="https://aduusolarinc.github.io/my-styles/styles.css" data-turbo-track="reload">
+      <!-- Manifest??? -->
+      <link rel="manifest" href="https://client.aduusolar.com/manifest.json" />
+      <!-- Affect Team Notes field and Project Data Show more button -->
+      <script src="https://cdn.spp.io/js/manifest.js?id=d6459d50de375c6bcb29ae2114751410" data-turbo-track="reload" defer></script>
+      <script src="https://cdn.spp.io/js/vendor.js?id=1d6ca67ed1d8425d063cf0d097244fb3" data-turbo-track="reload" defer></script>
+      <script src="https://cdn.spp.io/js/admin.js?id=99017431e1d48c05698298f2f8f57b76" data-turbo-track="reload" defer></script>
+      <!-- Access icon library -->
+      <script src="https://kit.fontawesome.com/51761b1c6c.js"
+         integrity="sha384-TkHCDK2R4IB93mPBtcXB9TEEMBrgr+TauHljGd1FRtIUOlP3bzlwhereXI2hOKjr"
+         crossorigin="anonymous"></script>
+   </head>
 
-.h2, h2 {
-    font-size: 1.75rem;
-}
 
-.h3, h3 {
-    font-size: 1.5rem;
-}
 
-.h4, h4 {
-    font-size: 1.25rem;
-}
+   <body class="">
 
-.h5, h5 {
-    font-size: 1rem;
-}
 
-.h6, h6 {
-    font-size: 0.875rem;
-}
 
-p {
-    margin-bottom: 1rem;
-}
+      <!-- UNKNOWN 1 -->
+      <div id="loading" class="ajax-loader">Loading...</div>
 
-/* Containers and Cards */
-.container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 15px;
-}
 
-.card {
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
-    margin-bottom: 1rem;
-    padding: 1rem;
-}
 
-.card-header {
-    background-color: var(--light);
-    border-bottom: 1px solid #dee2e6;
-    padding: 0.75rem 1.25rem;
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
-}
+      <!-- UNKNOWN 2 -->
+      <div id="status" class="fixed w-full z-50 pointer-events-none status-top">
+      </div>
+      <div id="turbo-modal">
+      </div>
+      <div class="row">
+         <main class="col">
+            <nav class="flex items-center lg:px-3">
+               <!-- Unknown button -->
+               <button class="mr-2 navbar-toggler d-block d-lg-none btn btn-light"
+                  type="button"
+                  data-action="mobile-sidebar#toggle">
+               <i class="far fa-bars"></i>
+               </button>
 
-.card-body {
-    padding: 1.25rem;
-}
 
-.card-title {
-    margin-bottom: 0.75rem;
-    font-size: 1.25rem;
-}
 
-/* Buttons */
-.btn {
-    display: inline-block;
-    font-weight: 400;
-    color: #fff;
-    text-align: center;
-    vertical-align: middle;
-    user-select: none;
-    background-color: var(--primary);
-    border: 1px solid var(--primary);
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    border-radius: 0.25rem;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-}
+               <!-- Back to Orders Button (top left corner) -->
+               <div class="flex-items-center text-ellipsis overflow-hidden whitespace-nowrap">
+                  <div class="flex items-center">
+                     <a href="https://client.aduusolar.com/orders?filtered"
+                        class="text-muted"
+                        title="Back to list (u)"
+                        data-tooltip="tooltip"
+                        data-shortcut="u">
+                     <i class="fas fa-angle-left"></i> Orders
+                     </a>
+                  </div>
+               </div>
 
-.btn-primary {
-    background-color: var(--primary);
-    border-color: var(--primary);
-}
 
-.btn-secondary {
-    background-color: var(--secondary);
-    border-color: var(--secondary);
-}
 
-.btn-success {
-    background-color: var(--success);
-    border-color: var(--success);
-}
+               <!-- IMPORTANT TO MAINTAIN SPACE AT TOP -->    
+               <div class="ml-auto flex items-center space-x-2 h-16"></div>
+            </nav>
+            <div class="container details-single"
+               data-controller="presence"
+               data-presence-channel-value="aduusolar.App.Models.Order.1319"
+               data-presence-event-value="App\Events\Orders\OrderViewUpdatedEvent">
+               <div class="header-container responsive order-ticket mt-0">
 
-/* Tables */
-.table {
-    width: 100%;
-    margin-bottom: 1rem;
-    color: #42526e;
-    border-collapse: collapse;
-}
 
-.table th, .table td {
-    padding: 0.75rem;
-    vertical-align: top;
-    border-top: 1px solid #dee2e6;
-}
 
-.table thead th {
-    vertical-align: bottom;
-    border-bottom: 2px solid #dee2e6;
-}
+                  <!-- Project Name -->
+                  <div class="mr-2 d-flex flex-fill align-items-start">
+                     <h1>
+                        projectRec.ProjectName
+                     </h1>
+                  </div>
 
-.table tbody + tbody {
-    border-top: 2px solid #dee2e6;
-}
 
-/* Forms */
-.form-control {
-    display: block;
-    width: 100%;
-    height: calc(1.5em + 0.75rem + 2px);
-    padding: 0.375rem 0.75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
 
-.form-control:focus {
-    border-color: #80bdff;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(0,123,255,0.25);
-}
+                  <!-- Important for spacing at the top -->
+                  <div class="form-inline">
+                     <div class="form-group"></div>
+                     <div class="form-group">
+                        <div class="dropdown-menu dropdown-menu-right"></div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-xl-4 order-xl-2">
+                     <div class="card secondary">
+                        <div class="card-header flex">
+                           <h3 class="card-title">
+                              <span data-clipboard>projectRec.Project_ID</span>
+                           </h3>
+                        </div>
 
-.form-group {
-    margin-bottom: 1rem;
-}
 
-label {
-    display: inline-block;
-    margin-bottom: 0.5rem;
-}
 
-/* Utilities */
-.m-0 { margin: 0 !important; }
-.mt-1 { margin-top: 0.25rem !important; }
-.mr-1 { margin-right: 0.25rem !important; }
-.mb-1 { margin-bottom: 0.25rem !important; }
-.ml-1 { margin-left: 0.25rem !important; }
-.mt-2 { margin-top: 0.5rem !important; }
-.mr-2 { margin-right: 0.5rem !important; }
-.mb-2 { margin-bottom: 0.5rem !important; }
-.ml-2 { margin-left: 0.5rem !important; }
-.mt-3 { margin-top: 1rem !important; }
-.mr-3 { margin-right: 1rem !important; }
-.mb-3 { margin-bottom: 1rem !important; }
-.ml-3 { margin-left: 1rem !important; }
-.mt-4 { margin-top: 1.5rem !important; }
-.mr-4 { margin-right: 1.5rem !important; }
-.mb-4 { margin-bottom: 1.5rem !important; }
-.ml-4 { margin-left: 1.5rem !important; }
+                        <!-- Project Details Side Panel -->
+                        <div class="card-body">
+                           <div class="grid grid-cols-1 gap-8">
+                              <div class="grid grid-cols-2 gap-2">
+                                 <div class="col-span-2">
+                                    <div class="text-muted text-sm">Service</div>
+                                    <div class="text-lg">
+                                       <a class="text-gray-900">
+                                       projectRec.Service
+                                       </a>
+                                    </div>
+                                    <div class="text-muted">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div>
+                                 <div class="text-muted text-sm block mb-1">Company</div>
+                                 <div class="grid grid-cols-2">
+                                    <div class="col-span-2">
+                                       <a class="text-gray-900">
+                                          projectRec.Team
+                                       </a>
+                                    </div>
+                                 </div>
 
-.p-0 { padding: 0 !important; }
-.pt-1 { padding-top: 0.25rem !important; }
-.pr-1 { padding-right: 0.25rem !important; }
-.pb-1 { padding-bottom: 0.25rem !important; }
-.pl-1 { padding-left: 0.25rem !important; }
-.pt-2 { padding-top: 0.5rem !important; }
-.pr-2 { padding-right: 0.5rem !important; }
-.pb-2 { padding-bottom: 0.5rem !important; }
-.pl-2 { padding-left: 0.5rem !important; }
-.pt-3 { padding-top: 1rem !important; }
-.pr-3 { padding-right: 1rem !important; }
-.pb-3 { padding-bottom: 1rem !important; }
-.pl-3 { padding-left: 1rem !important; }
-.pt-4 { padding-top: 1.5rem !important; }
-.pr-4 { padding-right: 1.5rem !important; }
-.pb-4 { padding-bottom: 1.5rem !important; }
-.pl-4 { padding-left: 1.5rem !important; }
+                                 
+                                 <div class="grid grid-cols-2 gap-2">
+                                    <div class="col-span-2">
+                                    </div>
+                                    <div class="col-span-2">
 
-.text-left { text-align: left !important; }
-.text-center { text-align: center !important; }
-.text-right { text-align: right !important; }
+                                    </div>
+                                    <div class="col-span-2">
 
-/* Custom Styles for Specific Elements */
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="grid grid-cols-2 gap-x-2 gap-y-3">
+                                 <div>
+                                    <div class="text-muted text-sm">Created</div>
+                                    <div class="cursor-default">
+                                       <span
+                                          data-toggle="tooltip"
+                                          title="Jul 9th at 10:08 pm BST">
+                                       Jul 9
+                                       </span>
+                                    </div>
+                                 </div>
+                                 <div>
+                                    <div class="text-muted text-sm">Started</div>
+                                    <div class="cursor-default">
+                                       <span
+                                          data-toggle="tooltip"
+                                          title="Jul 9th at 10:16 pm BST">
+                                       Jul 9
+                                       </span>
+                                    </div>
+                                 </div>
+                                 <div>
+                                    <div class="text-muted text-sm">Due</div>
+                                    <div class="cursor-default">
+                                       <span
+                                          data-toggle="tooltip"
+                                          title="Jul 10th at 10:16 pm BST (4 days ago)">
+                                       Jul 10
+                                       </span>
+                                    </div>
+                                 </div>
+                                 <div>
+                                    <div class="text-muted text-sm">Completed</div>
+                                    <div class="cursor-default">
+                                       <span
+                                          data-toggle="tooltip"
+                                          title="Jul 11th at 9:01 am BST (1 day from start date)">
+                                       Jul 11
+                                       </span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="grid grid-cols-2 gap-2">
+                                 <label class="mb-0">
+                                 <a class="text-gray-900">
+                                 Invoice
+                                 </a>
+                                 </label>
+                                 <div>
+                                    <div class="cursor-default status-badge badge-success py-0">
+                                       Paid
+                                    </div>
+                                 </div>
+                                 <div class="text-muted">Amount</div>
+                                 <div>$0.00</div>
+                                 <div class="text-muted">Origin</div>
+                                 <div><a class="text-gray-900" target="_blank">clients</a></div>
+                                 <div class="text-muted">Payment method</div>
+                                 <div>Account Balance</div>
+                              </div>
+                              
+                           </div>
+                        </div>
+                     </div>
 
-.ajax-loader {
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 0 10px 0 rgba(0, 123, 255, .03);
-    color: #6b778c;
-    display: none;
-    font-size: 13px;
-    left: 50%;
-    line-height: 40px;
-    margin-left: -65px;
-    padding-left: 50px;
-    position: fixed;
-    top: calc(9px + env(safe-area-inset-top));
-    width: 130px;
-    z-index: 1071;
-}
+                     <div class="card secondary" data-persist-collapse>
+                        <div class="card-header">
+                           <h3 class="card-title"
+                              data-toggle="collapse"
+                              data-target="#crm-fields">
+                              Team Notes
+                           </h3>
+                        </div>
+                        <div class="card-body collapse show" id="crm-fields">
+                           <div class="grid grid-cols-1 gap-2">
+                              <div data-field="2">
 
-.fixed {
-    position: fixed;
-    top: 0;
-}
+                                 <div>
+                                    projectRec.Team_Notes
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
 
-.w-full {
-    width: 100%;
-}
+<!-- Panel for Files -->
+                     <turbo-frame id="recent-files-frame"
+                        src="https://client.aduusolar.com/orders/4209D24E/files">
+                     </turbo-frame>
 
-.z-50 {
-    z-index: 50;
-}
+                  </div>
+                  <div class="col-xl-8 order-xl-1">
 
-.pointer-events-none {
-    pointer-events: none;
-}
+                     <div class="card note">
+                        <form method="post"
+                           action="https://client.aduusolar.com/orders/4209D24E/note">
+                           <input type="hidden" name="_token" value="xxo8gZKOcqmLLzEblvsN9wsp25XWVlAiYYvwTzkp" autocomplete="off">
+                           <div class="editor ">
+                              <input type="hidden"
+                                 id="note"
+                                 name="note"
+                                 value="">
+                              <trix-editor input="note"
+                                 placeholder="Add a note for your team..."
+                                 data-note
+                                 ></trix-editor>
+                              <div class="hidden editor-footer">
+                                 <button type="submit"
+                                    class="btn btn-warning"
+                                    id="note-save">
+                                 Save note
+                                 </button>
+                              </div>
+                           </div>
+                        </form>
+                     </div>
 
-.details-single {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-}
+			
+<!-- Project Data starts here-->
+                     <div class="header-container">
+                        <h2>Project data</h2>
 
-.details-single .card,
-.details-single section {
-    margin-bottom: 1.5rem;
-}
+<!-- Edit Data button -->
+                        <a href="#"
+                           class="btn btn-light"
+                           data-toggle="dropdown">
+                        <i class="fas fa-ellipsis-v"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                           <a
+                              href="https://client.aduusolar.com/formdata/add/order/4209D24E"
+                              class="dropdown-item">
+                           Add data
+                           </a>
+                           <a href="https://client.aduusolar.com/formdata/edit/order/4209D24E"
+                              class="dropdown-item">
+                           Edit data
+                           </a>
+                           <a href="https://client.aduusolar.com/formdata/export/order/4209D24E"
+                              data-turbo="false"
+                              class="dropdown-item">
+                           Export data
+                           </a>
+                           <a href="https://client.aduusolar.com/orders/4209D24E/filled-form-fields/media-export"
+                              class="dropdown-item">
+                           Download files
+                           </a>
+                           <a href="https://client.aduusolar.com/formdata/delete_all/order/4209D24E"
+                              class="dropdown-item">
+                           Delete data
+                           </a>
+                        </div>
+                     </div>
 
-.details-single .card .card-header,
-.details-single section .card-header {
-    align-items: center;
-    background: transparent;
-    display: flex;
-    font-weight: 400;
-    justify-content: space-between;
-}
+<!-- Project data panel -->
+                     <div class="card form-data overflow-x-auto">
+                        <div
+                           class="card-body" data-close>
+                           <div class="row">
+                              <div class="col-sm">
+                                 Project Name
+                              </div>
+                              <div class="col-sm-8">
+                                 AZ1462-JM24-RWolfsen
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-sm">
+                                 Job Type
+                              </div>
+                              <div class="col-sm-8">
+                                 PV Only
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-sm">
+                                 Site Address Line 1
+                              </div>
+                              <div class="col-sm-8">
+                                 2637 N 68th Pl
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-sm">
+                                 Site Address Line 2
+                              </div>
+                              <div class="col-sm-8">
+                                 <span class="data-empty">--</span>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-sm">
+                                 City
+                              </div>
+                              <div class="col-sm-8">
+                                 Scottsdale
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-sm">
+                                 State
+                              </div>
+                              <div class="col-sm-8">
+                                 AZ
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-sm">
+                                 Zip Code
+                              </div>
+                              <div class="col-sm-8">
+                                 85257
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-sm">
+                                 Upload Solar Proposal
+                              </div>
+                              <div class="col-sm-8">
+                                 <div class="files-with-actions d-table">
+                                    <div class="d-table-row">
+                                       <a href="https://client.aduusolar.com/files/v2/1dc8a922-a2a0-40d7-be38-4e93d6793f17"
+                                          class="pr-4 d-table-cell"
+                                          target="_blank">
+                                          <div class="leading-5 align-items-center d-flex">
+                                             <i class="mr-2 text-sm text-gray-400 fas fa-paperclip"></i>
+                                             Wolfsen, Robert_Proposal
+                                          </div>
+                                       </a>
+                                       <div class="d-table-cell nowrap">
+                                          <a href="https://client.aduusolar.com/files/v2/1dc8a922-a2a0-40d7-be38-4e93d6793f17/download"
+                                             class="text-gray-600"
+                                             title="Download"
+                                             data-turbo="false">
+                                          <i class="fas fa-arrow-alt-to-bottom"></i>
+                                          </a>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
 
-.details-single .card .card-title,
-.details-single section .card-title {
-    line-height: 1;
-    margin: 0;
-    padding: 0.25rem 0;
-}
-
-.details-single .card .card-body.empty,
-.details-single section .card-body.empty {
-    color: #6b778c;
-}
-
-.details-single .card.note,
-.details-single section.note {
-    border-left: 3px solid #ffc107;
-}
-
-.details-single section {
-    padding: 1.25rem;
-}
-
-.details-single .card.secondary .status-badge {
-    padding-bottom: 0;
-    padding-top: 0;
-}
-
-.order-ticket.header-container > div:first-child h1 {
-    line-height: 1.2;
-}
-
-.order-ticket.header-container > div:first-child a {
-    opacity: 0;
-    transform: translate(-5px);
-    transition: all 0.1s linear;
-}
-
-.order-ticket.header-container > div:first-child:hover a {
-    opacity: 1;
-    transform: translate(0);
-}
-
-.order-ticket.header-container > div:last-child select {
-    display: none;
-}
-
-.order-ticket.header-container > div:last-child .bootstrap-select {
-    max-width: 200px;
-    min-width: 110px;
-    width: auto;
-}
-
-.order-ticket.header-container > div:last-child .bootstrap-select .dropdown-menu,
-.order-ticket.header-container > div:last-child .bootstrap-select .tribute-container ul,
-.tribute-container .order-ticket.header-container > div:last-child .bootstrap-select ul {
-    width: 220px;
-}
-
-.order-ticket.header-container > div:last-child .form-group {
-    margin-bottom: 0.25rem;
-    margin-top: 0.25rem;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-}
-
-.col-xl-4 {
-    position: relative;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    flex: 0 0 33.33333333%;
-    max-width: 33.33333333%;
-}
-
-.order-xl-2 {
-    order: 2;
-}
+<!-- MESSAGE PANEL -->
+                     <turbo-frame src="https://client.aduusolar.com/orders/4209D24E/messages/scheduled">
+                        <div id="scheduled-messages"></div>
+                     </turbo-frame>
+                     <turbo-frame src="https://client.aduusolar.com/orders/4209D24E/messages">
+                        <div class="border-0 alert alert-warning hide-js">
+                           Images from this customer are not displayed.
+                           <a href="#" data-toggle="images">
+                           Show images.
+                           </a>
+                        </div>
+                        <div class="mb-3">
+                           <div id="messages-older"></div>
+                           <div id="messages">
+                              <div class="frame-loader"></div>
+                           </div>
+                           <div id="messages-newer"></div>
+                        </div>
+                     </turbo-frame>
+                     <div class="card mb-3 p-2 bg-gray-150 text-muted hidden" data-presence-target="alert">
+                        <div>
+                           This order has been updated. <a href="https://client.aduusolar.com/orders/4209D24E">Click here to refresh</a>.
+                        </div>
+                     </div>
+                     <div data-controller="new-message">
+                        <div data-new-message-target="clientReply" hidden>
+                           <form role="form"
+                              id="message-form"
+                              method="post"
+                              action="https://client.aduusolar.com/orders/4209D24E/messages"
+                              data-new-message-target="form"
+                              class="mb-5">
+                              <div class="editor">
+                                 <input type="hidden" name="_token" value="xxo8gZKOcqmLLzEblvsN9wsp25XWVlAiYYvwTzkp" autocomplete="off">
+                                 <input type="hidden" id="message" name="message">
+                                 <trix-editor input="message"
+                                    data-new-message-target="trixEditor"
+                                    placeholder="Send a client message or drop a file here to attach it..."
+                                    data-resource="App\Models\Order"
+                                    data-resource-id="1319"
+                                    data-localstorage="editorState-message-4209D24E"
+                                    data-saved-replies
+                                    data-attachments
+                                    data-mentions
+                                    ></trix-editor>
+                                 <div class="signature">
+                                    <div><br>Waqgari from Aduu Solar Engineering<br><strong>Aduu Solar Engineering | </strong>www.aduusolar.com | Twitter: @aduusolar</div>
+                                 </div>
+                                 <div class="upload-status"></div>
+                                 <div class="editor-footer flex items-center">
+                                    <button type="button"
+                                       class="btn btn-light"
+                                       data-action="new-message#deleteDraft"
+                                       title="Delete draft">
+                                    <i class="fas fa-trash"></i>
+                                    </button>
+                                    <button type="button"
+                                       class="btn btn-light ml-2"
+                                       data-action="new-message#toggleScheduler"
+                                       data-new-message-post-route-param="https://client.aduusolar.com/orders/4209D24E/messages"
+                                       data-new-message-schedule-route-param="https://client.aduusolar.com/orders/4209D24E/messages/scheduled"
+                                       title="Schedule for later">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    </button>
+                                    <div class="ml-3 mr-auto avatars"
+                                       data-presence-target="online"
+                                       ></div>
+                                    <div class="ml-auto">
+                                       <button type="submit"
+                                          class="btn btn-primary"
+                                          title="Send message (Cmd/Ctrl + Enter)">
+                                       Send to client
+                                       </button>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="mt-4" data-new-message-target="scheduler" hidden>
+                                 <div class="form-group">
+                                    <label>Schedule message at</label>
+                                    <input type="datetime-local"
+                                       class="form-control max-w-72"
+                                       name="scheduled_at">
+                                 </div>
+                                 <div class="form-group">
+                                    <div class="custom-control custom-checkbox">
+                                       <input type="checkbox"
+                                          name="cancel_on_reply"
+                                          value="1"
+                                          id="cancel-on-reply"
+                                          class="custom-control-input">
+                                       <label class="custom-control-label" for="cancel-on-reply">
+                                       Cancel if client replies before send time
+                                       </label>
+                                    </div>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
+                        <div class="message-note" data-new-message-target="teamReply" hidden>
+                           <form role="form"
+                              method="post"
+                              action="https://client.aduusolar.com/orders/4209D24E/messages"
+                              class="mb-5">
+                              <div class="editor">
+                                 <input type="hidden" id="staff_message" name="staff_message">
+                                 <input type="hidden" name="_token" value="xxo8gZKOcqmLLzEblvsN9wsp25XWVlAiYYvwTzkp" autocomplete="off">
+                                 <trix-editor input="staff_message"
+                                    data-new-message-target="trixEditor"
+                                    placeholder="Send a private message to your team only..."
+                                    data-resource="App\Models\Order"
+                                    data-resource-id="1319"
+                                    data-localstorage="editorState-note-4209D24E"
+                                    data-saved-replies
+                                    data-attachments
+                                    data-mentions
+                                    ></trix-editor>
+                                 <div class="upload-status"></div>
+                                 <div class="editor-footer flex items-center">
+                                    <button type="button"
+                                       class="btn btn-light"
+                                       data-action="new-message#deleteDraft"
+                                       data-toggle="tooltip"
+                                       title="Delete draft">
+                                    <i class="fas fa-trash"></i>
+                                    </button>
+                                    <div class="ml-3 mr-auto avatars"
+                                       data-presence-target="online"
+                                       ></div>
+                                    <button type="submit"
+                                       class="btn btn-warning ml-auto"
+                                       title="Send message (Cmd/Ctrl + Enter)">
+                                    Send to team
+                                    </button>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
+                        <div class="mb-5 text-right" data-new-message-target="messageButtons">
+                           <button type="button"
+                              class="btn btn-light"
+                              data-action="new-message#showClientReply"
+                              data-new-message-target="replyToClientButton"
+                              title="Send a message to client (r)"
+                              data-shortcut="r">
+                           <i class="mr-2 fas fa-reply"></i>
+                           Reply to client
+                           </button>
+                           <button type="button"
+                              class="ml-2 btn btn-light"
+                              data-action="new-message#showTeamReply"
+                              data-new-message-target="messageTeamButton"
+                              title="Send an internal message to your team (n)"
+                              data-shortcut="n">
+                           <i class="mr-2 fas fa-plus"></i>
+                           Message team
+                           </button>
+                        </div>
+                     </div>
+                     <turbo-frame
+                        id="history"
+                        src="https://client.aduusolar.com/orders/4209D24E/logs?stream=1"
+                        ></turbo-frame>
+                  </div>
+               </div>
+            </div>
+      </div>
+      </main>
+      </div>
+      </div>
+      <div class="mb-4 mr-4 text-right help-block">
+      </div>
+      <!-- Start SPP widget embed code -->
+      <div class="spp-widget" style="display:none">
+         <div class="spp-help-widget">
+            <button type="button" class="close">close</button>
+            <div class="iframe" data-src="https://clients.spp.co/contact/in-app/widget?email=w.ensermu%40aduusolar.com&amp;name_f=Waqgari&amp;name_l=Ensermu&amp;field_10=https%3A%2F%2Fclient.aduusolar.com" style="min-height:350px"></div>
+            <div class="error"></div>
+            <div class="success">
+               <!-- What to show on success -->
+               <div>&#128077;</div>
+               <h2>We're on it!</h2>
+               <p>
+                  <a
+                     href="/billing/redirect?path=portal/tickets"
+                     target="_blank">
+                  You can view your past tickets here.
+                  </a>
+               </p>
+            </div>
+         </div>
+      </div>
+      <!-- End of SPP widget -->
