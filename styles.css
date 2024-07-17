@@ -53,6 +53,17 @@ body {
     text-align: left;
 }
 
+ .pill-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 50rem;
+            color: #fff;
+            background-color: #007bff;
+            margin-right: 0.5rem;
+
 h1,h2,h3,h4,h5,h6 {
     margin-bottom: .5rem;
     margin-top: 0
