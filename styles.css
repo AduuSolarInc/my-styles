@@ -157,43 +157,16 @@ h1 {
     position: relative;
 }
 
-.ajax-loader {
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 0 10px 0 rgba(0,123,255,.03);
-    color: #6b778c;
-    display: none;
-    font-size: 13px;
-    left: 50%;
-    line-height: 40px;
-    margin-left: -65px;
-    padding-left: 50px;
+#loading {
     position: fixed;
-    top: calc(9px + env(safe-area-inset-top));
-    width: 130px;
-    z-index: 1071
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: Adds a semi-transparent white background */
+    z-index: 9999; /* Ensures the spinner is above other content */
 }
 
-.ajax-loader:before {
-    animation: spinner .75s linear infinite;
-    border-bottom: 3px solid transparent;
-    border-left: 3px solid transparent;
-    border-radius: 50%;
-    border-right: 3px solid #007bff;
-    border-right-color: var(--accent-color);
-    border-top: 3px solid #007bff;
-    border-top-color: var(--accent-color);
-    box-sizing: border-box;
-    content: "";
-    height: 25px;
-    left: 50%;
-    left: 25px;
-    margin-left: -12.5px;
-    margin-top: -12.5px;
-    position: absolute;
-    top: 50%;
-    width: 25px
-}
 
 .container, .container-fluid, .container-xl, .custom-container {
     margin-left: auto;
