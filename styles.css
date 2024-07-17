@@ -1,5 +1,23 @@
-/* Root Variables */
+@charset "UTF-8"; /*!
+ * Bootstrap v4.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2018 The Bootstrap Authors
+ * Copyright 2011-2018 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
 :root {
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #6b778c;
+    --gray-dark: #253858;
     --primary: #007bff;
     --secondary: #6b778c;
     --success: #28a745;
@@ -8,7 +26,22 @@
     --danger: #dc3545;
     --light: #fafafd;
     --dark: #253858;
-    --font-family-sans-serif: "proxima-nova", sans-serif;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+}
+
+*,:after,:before {
+    box-sizing: border-box
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    font-family: sans-serif;
+    line-height: 1.15
 }
 
 body {
@@ -20,9 +53,28 @@ body {
     text-align: left;
 }
 
+h1,h2,h3,h4,h5,h6 {
+    margin-bottom: .5rem;
+    margin-top: 0
+}
+
+p {
+    margin-bottom: 1rem;
+    margin-top: 0
+}
+
+a {
+    background-color: transparent;
+    color: #007bff;
+    text-decoration: none;
+}
+
+button {
+    border-radius: 0;
+}
+
 h1 {
     font-size: 2.1rem;
-    margin-top: 0;
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
@@ -31,7 +83,7 @@ h1 {
     margin-bottom: 0.5rem;
 }
 
-.h2, h2 {
+.h2 {
     font-size: 1.35rem;
 }
 
@@ -343,12 +395,6 @@ h1 {
 
 .flex {
     display: flex;
-}
-
-a {
-    background-color: transparent;
-    color: #007bff;
-    text-decoration: none;
 }
 
 .grid {
