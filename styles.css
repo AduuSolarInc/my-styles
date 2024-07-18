@@ -110,6 +110,34 @@ h1 {
     padding-left: 20px;
 }
 
+#messages-container {
+    max-width: 600px;
+    margin: auto;
+}
+
+.message {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.message-body {
+    margin-left: calc(50px + 1rem);
+}
+
+.show-more-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.btn.btn-light.btn-sm {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    font-size: 0.875em;
+}
+
 .text-right {
     text-align: right !important;
 }
