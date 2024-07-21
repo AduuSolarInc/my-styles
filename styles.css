@@ -58,6 +58,7 @@ body {
     border-bottom: 1px solid #e7e9ed;
     height: 56px;
     background: #fff
+    margin-left: 100px;
 }
 
 .app-header-inner {
@@ -70,6 +71,11 @@ body {
     right: 0;
     left: 0;
     z-index: 1030;
+}
+
+.py-2 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
 }
 
 h1,h2,h3,h4,h5,h6 {
