@@ -690,24 +690,29 @@ a.btn.disabled, fieldset:disabled a.btn {
     border: 1px solid #fff;
     box-shadow: 0 1px 1px 0 #dfe1e6;
     color: #42526e;
+    text-decoration: none; /* Ensures no underline */
 }
 
 .btn-light:hover, .tribute-container ul li.btn-light.highlight {
     background: #fafafd;
     border: 1px solid #fafafd;
     color: #42526e;
+    text-decoration: none; /* Ensures no underline */
 }
 
 .btn-light.focus, .btn-light:focus {
     box-shadow: 0 0 0 0.2rem #dfe1e6;
+    text-decoration: none; /* Ensures no underline */
 }
 
 .btn-light:not(:disabled):not(.disabled).active, .btn-light:not(:disabled):not(.disabled):active {
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.075);
+    text-decoration: none; /* Ensures no underline */
 }
 
 .btn-light:not(:disabled):not(.disabled).active:focus, .btn-light:not(:disabled):not(.disabled):active:focus {
     box-shadow: 0 0 0 0.2rem #dfe1e6, inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    text-decoration: none; /* Ensures no underline */
 }
 
 .btn-light.loading:after {
@@ -725,6 +730,7 @@ a.btn.disabled, fieldset:disabled a.btn {
     position: absolute;
     top: 50%;
     width: 20px;
+    text-decoration: none; /* Ensures no underline */
 }
 
 .btn-outline-primary {
