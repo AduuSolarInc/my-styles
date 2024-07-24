@@ -147,6 +147,7 @@ h1 {
 .message {
     border: 1px solid #ddd;
     padding: 15px;
+    shadow: none !important;
 }
 
 .message-body {
