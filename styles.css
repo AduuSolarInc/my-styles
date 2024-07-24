@@ -647,7 +647,7 @@ a.btn.disabled, fieldset:disabled a.btn {
 .btn-secondary {
     background: #D3D3D3;
     border: 1px solid #808080;
-    color: #42526e;
+    color: #000000;
 }
 
 .btn-secondary:hover:not(:disabled), .tribute-container ul li.btn-secondary.highlight:not(:disabled) {
