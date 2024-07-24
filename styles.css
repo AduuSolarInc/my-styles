@@ -148,7 +148,7 @@ h1 {
     background: #fff;
     padding: .75rem 1.25rem 2rem;
     position: relative;
-    border: 1px solid #ddd;
+    border-top: 1px solid #F5F6FF;
     box-shadow: none !important;
 }
 
